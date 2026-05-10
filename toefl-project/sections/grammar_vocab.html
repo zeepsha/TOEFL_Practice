@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Battle — TOEFL RPG</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="container" id="game-container">
+        <a href="../index.html" class="nav-link">← Retreat to Map</a>
+        
+        <div class="rpg-hud">
+            <div class="hud-stat">
+                <div class="hud-label"><span>HP</span> <span id="hp-text">100/100</span></div>
+                <div class="bar-bg"><div class="hp-fill" id="hp-bar"></div></div>
+            </div>
+            <div class="hud-stat">
+                <div class="hud-label"><span>Progress</span> <span id="exp-text">0 Total XP</span></div>
+                <div class="bar-bg"><div class="exp-fill" id="exp-bar"></div></div>
+            </div>
+        </div>
+
+        <div class="glass-card" id="battle-arena">
+            <div class="enemy-area">
+                <div class="enemy-sprite">🦇</div>
+                <p class="section-meta" id="enemy-name" style="margin-top: 15px; margin-bottom: 0;">Syntax Goblin</p>
+            </div>
+            
+            <div id="quiz-container">
+                <!-- Encounter will be loaded here -->
+            </div>
+        </div>
+
+        <div class="glass-card" id="game-over" style="display: none; text-align: center;">
+            <h1 style="color: var(--accent-orange);">You Died.</h1>
+            <p class="subtitle">The grammar monsters overwhelmed you.</p>
+            <button class="btn-primary" onclick="location.reload()">Revive & Retry</button>
+        </div>
+        
+        <footer>Imperium Digital Education Project.</footer>
+    </div>
+
+    <!-- Load Bank Soal -->
+    <script src="../data/grammar_vocab.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        if (typeof GRAMMAR_DATA !== 'undefined') {
+            TOEFL_APP.initRPG(GRAMMAR_DATA);
+        } else {
+            alert("Error: GRAMMAR_DATA is not defined.");
+        }
+    </script>
+</body>
+</html>
